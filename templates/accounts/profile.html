@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="{{ user.profile.image.url }}" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <div class="text-left mb-4">
+                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">краткая информация</h5>
+                        <h1>{{ user.username }}</h1>
+                    </div>
+                    <p>Александр Сергеевич Пушкин - выдающийся русский поэт, прозаик и драматург, чьи произведения оказали огромное влияние на русскую литературу. Родился в Московской губернии в знатной семье. Его талант проявился в раннем возрасте, и он начал писать стихи еще в школьные годы. В 1820-х годах его творчество приобрело широкую известность благодаря стихотворным повестям, романам в стихах и лирическим произведениям. Кроме того, Пушкин известен своими драматическими произведениями, такими как "Моцарт и Сальери" и "Борис Годунов". Его работы отличаются изысканным стилем, глубоким психологическим изучением персонажей и яркой художественной выразительностью. Пушкин также был активным общественным деятелем и участником политических событий своего времени. Он погиб в дуэли в 1837 году, оставив после себя богатое наследие литературных произведений, которые продолжают вдохновлять читателей по всему миру.</p>
+                    <a href="{% url 'update-profile' %}">
+                        <button type="button" class="btn btn-primary">Обновить</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- News Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Наши новости</h5>
+                <h1>Последние из наших новостей</h1>
+            </div>
+            <div class="row pb-3">
+                {% for news in news_list %}
+                <div class="col-lg-4 mb-4">
+                    <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="{{ news.image.url }}" alt="">
+                        <a class="blog-overlay text-decoration-none" href="{% url 'news-detail' news.pk %}">
+                            <h5 class="text-white mb-3">{{ news.title }}</h5>
+                            <p class="text-primary m-0">{{ news.created_date }}</p>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

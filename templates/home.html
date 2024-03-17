@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+     <!-- Navbar Start -->
+    <div class="container-fluid">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none" data-toggle="collapse" href="#navbar-vertical" style="height: 67px; padding: 0 30px;">
+                    <h5 class="text-primary m-0"><i class="fa fa-book-open mr-2"></i>Категории</h5>
+                    <i class="fa fa-angle-down text-primary"></i>
+                </a>
+                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
+                    <div class="navbar-nav w-100">
+                        {% for category in category_list %}
+                        <a href="{% url 'filter-by-category' category.id %}" class="nav-item nav-link">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 pb-5 mb-5">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#header-carousel" data-slide-to="1"></li>
+                <li data-target="#header-carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="min-height: 300px;">
+                    <img class="position-relative w-100" src="img/carousel-1.jpg" style="min-height: 300px; object-fit: cover;">
+                    <div class="carousel-caption d-flex align-items-center justify-content-center">
+                        <div class="p-5" style="width: 100%; max-width: 900px;">
+                            <h5 class="text-white text-uppercase mb-md-3"></h5>
+                            <h1 class="display-3 text-white mb-md-4">выбери профессию своей мечты!</h1>
+                            <a href="https://comtehno.kg/specialty/" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">читать детально</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="min-height: 300px;">
+                    <img class="position-relative w-100" src="img/carousel-2.jpg" style="min-height: 300px; object-fit: cover;">
+                    <div class="carousel-caption d-flex align-items-center justify-content-center">
+                        <div class="p-5" style="width: 100%; max-width: 900px;">
+                            <h5 class="text-white text-uppercase mb-md-3">Миссия КОМТЕХНО</h5>
+                            <h1 class="display-3 text-white mb-md-4">Выпустить готовых специалистов</h1>
+                            <a href="https://comtehno.kg/mission/" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">читать детально</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="min-height: 300px;">
+                    <img class="position-relative w-100" src="img/carousel-3.jpg" style="min-height: 300px; object-fit: cover;">
+                    <div class="carousel-caption d-flex align-items-center justify-content-center">
+                        <div class="p-5" style="width: 100%; max-width: 900px;">
+                            <h5 class="text-white text-uppercase mb-md-3">Планы на будущее</h5>
+                            <h1 class="display-3 text-white mb-md-4">Косметический ремонт </h1>
+                            <a href="https://comtehno.kg/youth-centre/" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">читать детально</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="img/about.jpg" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <div class="text-left mb-4">
+                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Кратко о нашем колледже</h5>
+                        <h1></h1>
+                    </div>
+                    <p>Информационные технологии занимают особое место в перспективных специальностях. Они уже изменили мир и продолжают играть ключевую роль в его изменении. Компьютеры необходимы повсюду, а специалисты по информационным технологиям всегда востребованы. Сфера информационных технологий стремительно развивается, и спрос на специалистов постоянно превышает предложение. Эта профессия также предоставляет возможность работать за рубежом и основать успешный бизнес. Образование в этой области можно получить, например, в Бишкекском колледже компьютерных систем и технологий.</p>
+                   <a href="https://comtehno.kg/wp-content/uploads/2020/06/%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-2.png
+" class=""> </a>
+                    <a href="https://comtehno.kg/about-us/" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">читать детально</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Актуальные Новости</h5>
+                <h1></h1>
+            </div>
+            <div class="row pb-3">
+                {% for news in news_list %}
+                <div class="col-lg-4 mb-4">
+                    <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="{{ news.image.url }}" alt="">
+                        <a class="blog-overlay text-decoration-none" href="{% url 'news-detail' news.pk %}">
+                            <h5 class="text-white mb-3">{{ news.title }}</h5>
+                            <p class="text-primary m-0">{{ news.created_date }}</p>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+{% endblock %}
